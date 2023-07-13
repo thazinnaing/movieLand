@@ -13,6 +13,7 @@ function App() {
   const [movies, setMovies]=useState([]);
   const [searchTerm, setSearchTerm]=useState("");
 
+
   const SearchMovies=async(title)=>{
     const response=await fetch(`${API_URL}&s=${title}`);
     const data=await response.json();
@@ -20,9 +21,12 @@ function App() {
     setMovies(data.Search);
   }
   useEffect(()=>{
-    // SearchMovies(searchTerm);
-    SearchMovies("Batman");
-  },[])
+    searchTerm === ""
+    ?
+    SearchMovies("Batman")
+    : 
+    SearchMovies(searchTerm)
+  },[searchTerm])
 
   return (
     <div className="app">
@@ -65,7 +69,7 @@ function App() {
               </div>
             ):(
                 <div className="empty">
-                <h2>No movies found!</h2>
+                <h2>No match video found! </h2>
               </div>
               )
         }

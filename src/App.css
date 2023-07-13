@@ -44,6 +44,10 @@
   width: 25px;
   height: 25px;
 }
+.empty h2{
+  font-weight: bold;
+  font-size: 30px;
+}
 @media screen and (max-width: 840px){
   .search input{
       width: 400px;
