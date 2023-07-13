@@ -4,7 +4,7 @@ import './movieCard.css'
 
 const MovieCard=({props})=>{
     return(
-        <div id={props.imdbID} className="movie">
+        <div className="movie">
         <div className="year">
             <p>{props.Year}</p>
         </div>

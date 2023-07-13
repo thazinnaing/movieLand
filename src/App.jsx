@@ -34,32 +34,31 @@ function App() {
           type="text"
           placeholder="Search for movies"
           value={searchTerm}
-          onChange={()=>{(event)=>{
+          onChange={(event)=>{
             setSearchTerm(event.target.value);
-          }}}
+            }}
           />
         </div>
         <div className="imgDiv">
           <img
           src={SearchIcon}
           alt="searchicon"
-          onClick={()=>{(event)=>{
-            SearchMovies(searchTerm);
-          }
+          onClick={(event)=>{
+            searchTerm === "" 
+            ?
+              SearchMovies("Batman")
+            :
+              SearchMovies(searchTerm)
           }}
           />
         </div>
-        
-        
-        
         </div>
         {movies?.length>0
           ? (
               <div className="movieContainer">
-                {/* <MovieCard props={movies[0]}/> */}
                 {movies.map(movie=>{
                   return(
-                    <MovieCard props={movie}/>
+                    <MovieCard props={movie} key={movie.imdbID}/>
                   )
                 })
                 }
