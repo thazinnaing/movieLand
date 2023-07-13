@@ -2,7 +2,6 @@ import React from "react";
 
 
 const MovieCard=({props})=>{
-    console.log("ll",props);
     return(
         <div className="movie">
         <div>

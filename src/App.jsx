@@ -11,16 +11,17 @@ const API_URL='http://www.omdbapi.com/?i=tt3896198&apikey=7e69ef52';
 function App() {
 
   const [movies, setMovies]=useState([]);
+  const [searchTerm, setSearchTerm]=useState("");
 
   const SearchMovies=async(title)=>{
     const response=await fetch(`${API_URL}&s=${title}`);
     const data=await response.json();
-    console.log(data.Search);
 
     setMovies(data.Search);
   }
   useEffect(()=>{
-    SearchMovies('Spiderman');
+    // SearchMovies(searchTerm);
+    SearchMovies("Spiderman");
   },[])
 
   return (
@@ -29,37 +30,40 @@ function App() {
 
       <div className="search">
         <input
+        type="text"
         placeholder="Search for movies"
-        onChange={()=>{
-
-        }}
+        value={searchTerm}
+        onChange={()=>{(event)=>{
+          // console.log(event.target.value);
+          setSearchTerm(event.target.value);
+        }}}
         />
         <img
         src={SearchIcon}
         alt="searchicon"
-        onClick={()=>{
+        onClick={()=>{(event)=>{
+          SearchMovies(searchTerm);
+        }
 
         }}
         />
-        {
-          movies?.length>0
-          ?(
-            <div className="movieContainer">
-              {movies.map((movie)=>{
-                console.log("movie",movie);
-                <MovieCard props={movie}/>
-              })
-              }
-            </div>
-          ):(
-            <div className="empty">
-              <h2>No movies found!</h2>
-            </div>
-          )
+        {movies?.length>0
+          ? (
+              <div className="movieContainer">
+                {/* <MovieCard props={movies[0]}/> */}
+                {movies.map(movie=>{
+                  return(
+                    <MovieCard props={movie}/>
+                  )
+                })
+                }
+              </div>
+            ):(
+                <div className="empty">
+                <h2>No movies found!</h2>
+              </div>
+              )
         }
-      
-        
-        
       </div>
 
     </div>
