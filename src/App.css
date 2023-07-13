@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.app h1{
+  font-size: 50px;
+  font-family: 'Caprasimo', cursive;
+}
+.movieContainer{
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.search{
+  display: flex;
+}
+.search input{
+  width: 500px;
+  height: 50px;
+  padding: 0 10px 0 20px;
+  font-size: 16px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: #A8A196;
+}
+.imgDiv{
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #A8A196;
+}
+.search img{
+  width: 25px;
+  height: 25px;
+}
+@media screen and (max-width: 840px){
+  .search input{
+      width: 400px;
+  }
+}
+@media screen and (max-width: 640px){
+  .search input{
+    width: 250px;
+  }
+}
+

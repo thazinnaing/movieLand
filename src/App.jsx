@@ -21,7 +21,7 @@ function App() {
   }
   useEffect(()=>{
     // SearchMovies(searchTerm);
-    SearchMovies("Spiderman");
+    SearchMovies("Batman");
   },[])
 
   return (
@@ -29,24 +29,30 @@ function App() {
       <h1>MovieLand</h1>
 
       <div className="search">
-        <input
-        type="text"
-        placeholder="Search for movies"
-        value={searchTerm}
-        onChange={()=>{(event)=>{
-          // console.log(event.target.value);
-          setSearchTerm(event.target.value);
-        }}}
-        />
-        <img
-        src={SearchIcon}
-        alt="searchicon"
-        onClick={()=>{(event)=>{
-          SearchMovies(searchTerm);
-        }
-
-        }}
-        />
+        <div>
+          <input
+          type="text"
+          placeholder="Search for movies"
+          value={searchTerm}
+          onChange={()=>{(event)=>{
+            setSearchTerm(event.target.value);
+          }}}
+          />
+        </div>
+        <div className="imgDiv">
+          <img
+          src={SearchIcon}
+          alt="searchicon"
+          onClick={()=>{(event)=>{
+            SearchMovies(searchTerm);
+          }
+          }}
+          />
+        </div>
+        
+        
+        
+        </div>
         {movies?.length>0
           ? (
               <div className="movieContainer">
@@ -66,7 +72,6 @@ function App() {
         }
       </div>
 
-    </div>
   )
 
 }
