@@ -3,16 +3,12 @@ import './App.css';
 import SearchIcon from "./search.svg";
 import MovieCard from "./components/movieCard.jsx";
 
-
-
 const API_URL='http://www.omdbapi.com/?i=tt3896198&apikey=7e69ef52';
-
 
 function App() {
 
   const [movies, setMovies]=useState([]);
   const [searchTerm, setSearchTerm]=useState("");
-
 
   const SearchMovies=async(title)=>{
     const response=await fetch(`${API_URL}&s=${title}`);
@@ -47,7 +43,7 @@ function App() {
           <img
           src={SearchIcon}
           alt="searchicon"
-          onClick={(event)=>{
+          onClick={()=>{
             searchTerm === "" 
             ?
               SearchMovies("Batman")
@@ -74,9 +70,7 @@ function App() {
               )
         }
       </div>
-
   )
-
 }
 
 

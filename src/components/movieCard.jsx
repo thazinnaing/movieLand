@@ -1,6 +1,4 @@
-import React from "react";
 import './movieCard.css'
-
 
 const MovieCard=({props})=>{
     return(
